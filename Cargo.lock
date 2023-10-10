@@ -4467,6 +4467,7 @@ dependencies = [
  "pallet-balances",
  "pallet-grandpa",
  "pallet-ocw",
+ "pallet-offchain-worker",
  "pallet-sudo",
  "pallet-template",
  "pallet-timestamp",
@@ -4752,6 +4753,20 @@ dependencies = [
 
 [[package]]
 name = "pallet-ocw"
+version = "4.0.0-dev"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "scale-info",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+]
+
+[[package]]
+name = "pallet-offchain-worker"
 version = "4.0.0-dev"
 dependencies = [
  "frame-benchmarking",

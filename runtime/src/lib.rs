@@ -277,10 +277,16 @@ impl pallet_template::Config for Runtime {
 	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
 }
 
-/// Configure the pallet-template in pallets/template.
+/// Configure the pallet-ocwe in pallets/ocw.
 impl pallet_ocw::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
 	type WeightInfo = pallet_ocw::weights::SubstrateWeight<Runtime>;
+}
+
+/// Configure the pallet-off-chain-worker in pallets/offchain-worker.
+impl pallet_offchain_worker::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
 }
 
 
@@ -297,6 +303,7 @@ construct_runtime!(
 		// Include the custom logic from the pallet-template in the runtime.
 		TemplateModule: pallet_template,
 		OcwModule: pallet_ocw,
+		OffchainworkerModule: pallet_offchain_worker
 
 	}
 );
@@ -347,6 +354,7 @@ mod benches {
 		[pallet_sudo, Sudo]
 		[pallet_template, TemplateModule]
 		[pallet_ocw, OcwModule]
+		[pallet_offchain_worker, OffchainworkerModule]
 
 	);
 }
